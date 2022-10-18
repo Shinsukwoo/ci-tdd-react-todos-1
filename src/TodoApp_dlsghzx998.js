@@ -28,14 +28,17 @@ const TodoApp_dlsghzx998 = () => {
     }, [todos]);
     const onToggle = useCallback(id => {
         setTodos(
-            todos.map(todo => todo.id === id ? {...todo, done: !todo.done} : todo
-            )
+            todos.map(todo => todo.id === id ? {...todo, done: !todo.done} : todo)
+            );
+        }, [todos]);
+    const onRemove = useCallback(id => {
+        setTodos(
+            todos.filter(todo => todo.id !== id)
         );
     }, [todos]);
     return (<div>
-        <TodoForm onInsert={onInsert}/>
-        <TodoList todos={todos} />
-    </div>);
+        <TodoForm onInsert={onInsert} />
+    </div>)
 };
 
 export default TodoApp_dlsghzx998
